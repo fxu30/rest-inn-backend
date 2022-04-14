@@ -26,17 +26,17 @@ public class PropertyService {
 	
 	// Get properties by both title and type
 	public List<Property> getAllPropertyByTypeAndTitle(String type, String title){
-		return propertyDao.findAllByTypeAndTitleAllIgnoreCase(type, title);
+		return propertyDao.findAllByTypeContainingAndTitleContainingAllIgnoreCase(type, title);
 	}
 	
 	// Get properties by title
 	public List<Property> getAllPropertyByTitle(String title){
-		return propertyDao.findAllByTypeOrTitleAllIgnoreCase(null, title);
+		return propertyDao.findAllByTypeContainingOrTitleContainingAllIgnoreCase(null, title);
 	}
 	
 	// Get properties by type
 	public List<Property> getAllPropertyByType(String type){
-		return propertyDao.findAllByTypeOrTitleAllIgnoreCase(type, null);
+		return propertyDao.findAllByTypeContainingOrTitleContainingAllIgnoreCase(type, null);
 	}
 	
 	

@@ -11,8 +11,8 @@ public interface PropertyDao extends MongoRepository<Property, String> {
 	List<Property> findAllByFeatured(Boolean featured);
 	
 	
-	List<Property> findAllByTypeOrTitleAllIgnoreCase(String type, String title);
+	List<Property> findAllByTypeContainingOrTitleContainingAllIgnoreCase(String type, String title);
 	
-	List<Property> findAllByTypeAndTitleAllIgnoreCase(String type, String title);
+	List<Property> findAllByTypeContainingAndTitleContainingAllIgnoreCase(String type, String title);
 
 }
