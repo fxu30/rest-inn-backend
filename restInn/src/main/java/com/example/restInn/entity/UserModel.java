@@ -1,5 +1,9 @@
 package com.example.restInn.entity;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,9 +12,18 @@ public class UserModel {
 	
 	@Id
 	private String id;
+	
+	@NotBlank(message= "First name is mandatory")
 	private String firstname;
+	
+	@NotBlank(message= "Last name is mandatory")
 	private String lastname;
+	
+	@Email(message= "Not a valid email")
 	private String email;
+	
+	@NotBlank(message= "Password is mandatory")
+	@Min(message= "Password requires length of 6", value=6)
 	private String password;
 	
 	// Constructors

@@ -55,10 +55,14 @@ public class UserService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		UserModel foundUser = userDao.findOneByEmail(username);
-		String email = foundUser.getEmail();
-		String password = foundUser.getPassword();
-		
-		return new User(email, password, new ArrayList<>());
+		if (foundUser == null) {
+			throw new UsernameNotFoundException("User not found: " + username);
+		}else {
+			String email = foundUser.getEmail();
+			String password = foundUser.getPassword();
+			
+			return new User(email, password, new ArrayList<>());
+		}
 	}
 
 	public UserModel getUserByEmail(String email) {
