@@ -18,15 +18,17 @@ public class UserModel {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public UserModel(String id, String firstName, String lastName, String email, String password) {
+
+	public UserModel(String id, String firstname, String lastname, String email, String password) {
 		super();
 		this.id = id;
-		this.firstname = firstName;
-		this.lastname = lastName;
+		this.firstname = firstname;
+		this.lastname = lastname;
 		this.email = email;
 		this.password = password;
 	}
+
+
 
 	// Getter,Setter
 	public String getId() {
@@ -35,17 +37,20 @@ public class UserModel {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getFirstName() {
+	public String getFirstname() {
 		return firstname;
 	}
-	public void setFirstName(String firstName) {
-		this.firstname = firstName;
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
-	public String getLastName() {
+
+	public String getLastname() {
 		return lastname;
 	}
-	public void setLastName(String lastName) {
-		this.lastname = lastName;
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 	public String getEmail() {
 		return email;
@@ -59,6 +64,6 @@ public class UserModel {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
 	
 }

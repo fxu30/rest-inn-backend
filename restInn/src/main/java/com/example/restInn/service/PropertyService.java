@@ -12,7 +12,7 @@ import com.example.restInn.repository.PropertyDao;
 @Service
 public class PropertyService {
 	@Autowired
-	PropertyDao propertyDao;
+	private PropertyDao propertyDao;
 
 	// Get all properties
 	public List<Property> getAllProperties() {
