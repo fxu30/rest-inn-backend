@@ -38,7 +38,7 @@ public class UserService implements UserDetailsService {
 		}
 		else
 		{
-			return new UserModel();
+			return null;
 		}
 		
 	}
