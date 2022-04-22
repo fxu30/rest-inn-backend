@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ import com.example.restInn.entity.UserModel;
 import com.example.restInn.service.UserService;
 
 @RestController
+@CrossOrigin
 public class UserController {
 	
 	@Autowired
@@ -59,7 +61,9 @@ public class UserController {
 			UserModel um =  userService.addUser(user);
 			return new ResponseEntity<UserModel>(um, HttpStatus.CREATED);
 		}else {
-			return new ResponseEntity<UserModel>(new UserModel(), HttpStatus.BAD_REQUEST);
+			UserModel duplicateUser = new UserModel();
+			duplicateUser.setEmail("This email is already used");
+			return new ResponseEntity<UserModel>(duplicateUser, HttpStatus.BAD_REQUEST);
 		}
 		
 	}

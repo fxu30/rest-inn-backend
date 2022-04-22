@@ -19,10 +19,10 @@ public class UserModel {
 	@NotBlank(message= "Last name is mandatory")
 	private String lastname;
 	
+	@NotBlank(message= "Not a valid email")
 	@Email(message= "Not a valid email")
 	private String email;
 	
-	@NotBlank(message= "Password is mandatory")
 	@Min(message= "Password requires length of 6", value=6)
 	private String password;
 	
